@@ -38,13 +38,8 @@ public class SimpleService extends Service{
          * Primer poziva asinhronog zadatka ako ima veze ka mrezi
          * npr. sinhronizacija mail-ova fotografija, muzike dokumenata isl.
          * */
-        //if(status == ReviewerTools.TYPE_WIFI){
-            //new SimpleSyncTask(getApplicationContext()).execute();
+          new PozadinskiZAdatak(this).execute(status);
 
-
-        //}
-
-        kreirajObavestenje(ReviewerTools.getConnectionType(status));
 
 
         /**
@@ -61,14 +56,6 @@ public class SimpleService extends Service{
         return START_NOT_STICKY;
     }
 
-    public  void kreirajObavestenje(String _tipKonekcije) {
 
-        Notification obavestenje=new Obavestenja(this,"Tip povezivanja",_tipKonekcije).build();
-        NotificationManager notificationManager =(NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-
-        obavestenje.flags |=Notification.FLAG_AUTO_CANCEL;
-
-        notificationManager.notify(0, obavestenje);
-    }
 
 }

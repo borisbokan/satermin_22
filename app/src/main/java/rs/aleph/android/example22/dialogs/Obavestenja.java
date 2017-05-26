@@ -25,6 +25,7 @@ public class Obavestenja extends Notification.Builder {
         this.naslovPoruke=_naslov;
         this.poruka=_poruka;
 
+        setAutoCancel(true);
         setContentTitle(_naslov);
         setContentText(_poruka);
         setSmallIcon(R.drawable.ic_tipkonekcije);
